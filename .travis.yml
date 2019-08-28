@@ -8,10 +8,10 @@ before_install:
 addons:
   apt:
     update: true
-script: STAGE_LIST='stage0 stage1 stage2' IMG_NAME='Raspbian' ENABLE_SSH=1 sudo ./build.sh
+script: pwd
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
   file_glob: true
-  file: "pi-gen/deploy/*.zip"
+  file: "pi-gen/*.sh"
   skip_cleanup: true
