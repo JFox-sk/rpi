@@ -12,6 +12,7 @@ jobs:
   include:
     - stage: git-repo
       script:
+        - rm -rf pi-gen
         - git clone https://github.com/RPi-Distro/pi-gen.git
         - cd pi-gen
         - git checkout 2019-04-08-raspbian-stretch
