@@ -6,7 +6,6 @@ addons:
     update: true
 before_install:
   - sudo apt-get install -y coreutils quilt parted qemu-user-static debootstrap zerofree zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl sudo
-  - sudo su
 cache:
   directories:
   - pi-gen
@@ -23,14 +22,14 @@ jobs:
         - ls
         - ls ../
     - stage: stage0
-      script: STAGE_LIST=stage0 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
+      script: sudo STAGE_LIST=stage0 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
     - stage: stage1
-      script: STAGE_LIST=stage1 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
+      script: sudo STAGE_LIST=stage1 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
     - stage: stage2
-      script: STAGE_LIST=stage2 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
+      script: sudo STAGE_LIST=stage2 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
     - stage: stage3
-      script: STAGE_LIST=stage3 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
+      script: sudo STAGE_LIST=stage3 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
     - stage: stage4
-      script: STAGE_LIST=stage4 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
+      script: sudo STAGE_LIST=stage4 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
     - stage: stage5
-      script: STAGE_LIST=stage5 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
+      script: sudo STAGE_LIST=stage5 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
