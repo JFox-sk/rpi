@@ -22,7 +22,9 @@ jobs:
         - ls
         - ls ../
     - stage: stage0
-      script: sudo STAGE_LIST=stage0 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
+      script: 
+        - set -x
+        - sudo STAGE_LIST=stage0 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
     - stage: stage1
       script: sudo STAGE_LIST=stage1 IMG_NAME='Raspbian' ENABLE_SSH=1 ./pi-gen/build.sh
     - stage: stage2
