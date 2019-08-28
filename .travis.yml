@@ -1,11 +1,12 @@
 os: linux
 dist: bionic
-sudo: true
+sudo: required
 addons:
   apt:
     update: true
 before_install:
   - sudo apt-get install -y coreutils quilt parted qemu-user-static debootstrap zerofree zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl sudo
+  - sudo su
 cache:
   directories:
   - pi-gen
